@@ -1,0 +1,120 @@
+﻿@model ArtistLibrary.Models.Models.Group
+
+@{
+    ViewData["Title"] = "Add new group";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-family: Georgia, serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left; /* Alinha os labels à esquerda para melhor aparência */
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+
+        .form-control {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #333;
+            color: white;
+        }
+
+        .text-danger {
+            color: red;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background-color: #333;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+        }
+
+            .btn:hover {
+                background-color: #444;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            }
+
+        /* Adiciona margem ao formulário para centralizar */
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #444;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h2>@ViewData["Title"]</h2>
+
+    <form asp-action="AddNewGroup" method="post">
+        <div class="form-group">
+            <label asp-for="GroupName">Group name: </label>
+            <input asp-for="GroupName" class="form-control" />
+            <span asp-validation-for="GroupName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="GroupDebutDate">Group debut date (USE /): </label>
+            <input asp-for="GroupDebutDate" class="form-control" />
+            <span asp-validation-for="GroupDebutDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="GroupMusicGenre">Music genre:</label>
+            <input asp-for="GroupMusicGenre" class="form-control" />
+            <span asp-validation-for="GroupMusicGenre" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="GroupPhoto">Photo (URL):</label>
+            <input asp-for="GroupPhoto" class="form-control" />
+            <span asp-validation-for="GroupPhoto" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn">Add Group</button>
+    </form>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+</body>
+</html>
